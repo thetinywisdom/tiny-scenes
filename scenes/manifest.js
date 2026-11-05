@@ -11,4 +11,10 @@ export const scenes = [
     blurb: 'Low-poly oak-and-steel bar stool. Drag to look around.',
     href: 'scenes/stool/',
   },
+  {
+    id: 'chair',
+    title: 'Chair',
+    blurb: 'Low-poly orange swivel lounge chair. Drag to look around.',
+    href: 'scenes/chair/',
+  },
 ];

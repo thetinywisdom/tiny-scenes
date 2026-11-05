@@ -12,13 +12,13 @@ npm run dev
 
 Open [http://localhost:5173](http://localhost:5173). The index lists every scene.
 
-The desk (`/scenes/desk/`) and stool (`/scenes/stool/`) start in a 3/4 view with orbit controls on: drag to rotate, scroll or pinch to zoom, right-drag to pan. The polar angle stays above the floor. Press `D` (or open `?debug=1`) for the draw-call, triangle, and frame-time readout. On scenes that ship with orbit off, that same toggle turns orbit on.
+The desk (`/scenes/desk/`), stool (`/scenes/stool/`), and chair (`/scenes/chair/`) start in a 3/4 view with orbit controls on: drag to rotate, scroll or pinch to zoom, right-drag to pan. The polar angle stays above the floor. Press `D` (or open `?debug=1`) for the draw-call, triangle, and frame-time readout. On scenes that ship with orbit off, that same toggle turns orbit on.
 
 ## Add a scene
 
 1. Create `scenes/<name>/index.html` and `scenes/<name>/main.js`.
 2. Call `runScene` from `lib/runScene.js`. Pass `orbit: true` only if the scene should start with drag controls. Leave it off otherwise. Every scene gets a small “← All scenes” link back to the index; it stays hidden while rendering.
-3. Build the set with modules from `lib/` (`createDesk`, `createStool`, `addStudio`, or new pieces). Drive motion from the sample passed to `apply(sample)` — `sample.t`, `sample.rise`, and `sample.seed` — so the same frame always looks the same.
+3. Build the set with modules from `lib/` (`createDesk`, `createStool`, `createChair`, `addStudio`, or new pieces). Drive motion from the sample passed to `apply(sample)` — `sample.t`, `sample.rise`, and `sample.seed` — so the same frame always looks the same.
 4. Register the page in `vite.config.js` (`build.rollupOptions.input`) and add an entry to `scenes/manifest.js`.
 
 `lib/timeline.js` is the clock. `lib/rng.js` is the seeded generator. `lib/setup.js` is the renderer, lights, and post stack.
@@ -74,6 +74,23 @@ The stool scene is static. Tubes are 6-sided and flat shaded.
 ```bash
 npm run render -- stool --preset 1080p --still
 npm run render -- stool --preset square --still
+```
+
+## Chair
+
+`createChair` in `lib/chair.js` builds a DYVLINGE-style swivel lounge chair. Units are meters.
+
+| param | default | |
+| --- | --- | --- |
+| `color` | `#d9601e` | upholstery |
+| `baseColor` | `#d5d8de` | chrome five-star base |
+| `rotation` | `0.45` | swivel angle in radians |
+
+The chair scene is static, flat-shaded, and opens on a 3/4 view.
+
+```bash
+npm run render -- chair --preset 1080p --still
+npm run render -- chair --preset square --still
 ```
 
 ## Deploy
