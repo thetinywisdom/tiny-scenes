@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Desk — tiny scenes</title>
+    <link rel="icon" href="%BASE_URL%favicon.svg" type="image/svg+xml" />
+    <style>
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        background: #d5cfc4;
+        overflow: hidden;
+      }
+      #view {
+        display: block;
+        width: 100vw;
+        height: 100vh;
+        touch-action: none;
+      }
+      .hint {
+        position: fixed;
+        left: 14px;
+        bottom: 12px;
+        margin: 0;
+        color: rgba(36, 32, 28, 0.62);
+        font: 12px/1.4 ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+        letter-spacing: 0.01em;
+        pointer-events: none;
+      }
+      .stats {
+        position: fixed;
+        top: 12px;
+        left: 12px;
+        z-index: 2;
+        margin: 0;
+        padding: 10px 12px;
+        background: rgba(28, 26, 24, 0.78);
+        color: #f4efe6;
+        font: 12px/1.45 ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+        white-space: pre;
+        pointer-events: none;
+      }
+      .stats[hidden] {
+        display: none;
+      }
+      body.is-render .hint,
+      body.is-render .stats {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="view"></canvas>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
