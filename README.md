@@ -12,13 +12,13 @@ npm run dev
 
 Open [http://localhost:5173](http://localhost:5173). The index lists every scene.
 
-The desk scene (`/scenes/desk/`) starts in a 3/4 view with orbit controls on: drag to rotate, scroll or pinch to zoom, right-drag to pan. The polar angle stays above the floor. Press `D` (or open `?debug=1`) for the draw-call, triangle, and frame-time readout. On scenes that ship with orbit off, that same toggle turns orbit on.
+The desk (`/scenes/desk/`) and stool (`/scenes/stool/`) start in a 3/4 view with orbit controls on: drag to rotate, scroll or pinch to zoom, right-drag to pan. The polar angle stays above the floor. Press `D` (or open `?debug=1`) for the draw-call, triangle, and frame-time readout. On scenes that ship with orbit off, that same toggle turns orbit on.
 
 ## Add a scene
 
 1. Create `scenes/<name>/index.html` and `scenes/<name>/main.js`.
 2. Call `runScene` from `lib/runScene.js`. Pass `orbit: true` only if the scene should start with drag controls. Leave it off otherwise.
-3. Build the set with modules from `lib/` (`createDesk`, `addStudio`, or new pieces). Drive motion from the sample passed to `apply(sample)` — `sample.t`, `sample.rise`, and `sample.seed` — so the same frame always looks the same.
+3. Build the set with modules from `lib/` (`createDesk`, `createStool`, `addStudio`, or new pieces). Drive motion from the sample passed to `apply(sample)` — `sample.t`, `sample.rise`, and `sample.seed` — so the same frame always looks the same.
 4. Register the page in `vite.config.js` (`build.rollupOptions.input`) and add an entry to `scenes/manifest.js`.
 
 `lib/timeline.js` is the clock. `lib/rng.js` is the seeded generator. `lib/setup.js` is the renderer, lights, and post stack.
@@ -58,6 +58,23 @@ Presets: `1080p` (1920×1080), `vertical` (1080×1920), `square` (1080×1080). D
 | `metalColor` | `#3c424c` | flat dark iron |
 
 The desk scene is a static shot at 75 cm. The columns are 8-sided, the feet 6-sided, and materials use flat shading. No animation is applied.
+
+## Stool
+
+`createStool` in `lib/stool.js` builds a bar stool. Units are meters.
+
+| param | default | |
+| --- | --- | --- |
+| `seatHeight` | `0.66` | front edge of the seat; the back lip is 11 cm higher |
+| `woodColor` | `#d09a52` | flat oak, matching the desk top |
+| `metalColor` | `#3c424c` | matte tube frame |
+
+The stool scene is static. Tubes are 6-sided and flat shaded.
+
+```bash
+npm run render -- stool --preset 1080p --still
+npm run render -- stool --preset square --still
+```
 
 ## Deploy
 
