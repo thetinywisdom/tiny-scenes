@@ -10,6 +10,7 @@ export default defineConfig({
       input: {
         main: resolve(root, 'index.html'),
         desk: resolve(root, 'scenes/desk/index.html'),
+        stool: resolve(root, 'scenes/stool/index.html'),
       },
     },
   },
