@@ -17,7 +17,7 @@ The desk (`/scenes/desk/`) and stool (`/scenes/stool/`) start in a 3/4 view with
 ## Add a scene
 
 1. Create `scenes/<name>/index.html` and `scenes/<name>/main.js`.
-2. Call `runScene` from `lib/runScene.js`. Pass `orbit: true` only if the scene should start with drag controls. Leave it off otherwise.
+2. Call `runScene` from `lib/runScene.js`. Pass `orbit: true` only if the scene should start with drag controls. Leave it off otherwise. Every scene gets a small “← All scenes” link back to the index; it stays hidden while rendering.
 3. Build the set with modules from `lib/` (`createDesk`, `createStool`, `addStudio`, or new pieces). Drive motion from the sample passed to `apply(sample)` — `sample.t`, `sample.rise`, and `sample.seed` — so the same frame always looks the same.
 4. Register the page in `vite.config.js` (`build.rollupOptions.input`) and add an entry to `scenes/manifest.js`.
 
