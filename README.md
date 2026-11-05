@@ -82,11 +82,11 @@ npm run render -- stool --preset square --still
 
 | param | default | |
 | --- | --- | --- |
-| `color` | `#d9601e` | upholstery |
+| `color` | `#c8501a` | upholstery |
 | `baseColor` | `#d5d8de` | chrome five-star base |
 | `rotation` | `0.45` | swivel angle in radians |
 
-The chair scene is static, flat-shaded, and opens on a 3/4 view.
+The chair scene is static, flat-shaded, and opens on a 3/4 view. It passes `#8f3812` so the lit cushions stay in the burnt-orange range under the studio key light.
 
 ```bash
 npm run render -- chair --preset 1080p --still
