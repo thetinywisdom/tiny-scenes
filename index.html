@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>tiny scenes</title>
+    <link rel="icon" href="%BASE_URL%favicon.svg" type="image/svg+xml" />
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #241f1a;
+        --muted: #6d645b;
+        --line: #d3cbc0;
+        --bg: #ebe4d8;
+        --card: #f7f3eb;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; }
+      body {
+        min-height: 100vh;
+        background:
+          radial-gradient(1200px 500px at 10% -10%, #f8f4ec, transparent 60%),
+          var(--bg);
+        color: var(--ink);
+        font-family: "Iowan Old Style", Palatino, "Palatino Linotype", Georgia, serif;
+      }
+      main {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 72px 24px 96px;
+      }
+      .mark {
+        margin: 0 0 18px;
+        font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+        font-size: 12px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      h1 {
+        margin: 0;
+        font-weight: 500;
+        font-size: clamp(40px, 6vw, 64px);
+        letter-spacing: -0.03em;
+        line-height: 0.95;
+      }
+      .lede {
+        max-width: 38em;
+        margin: 18px 0 40px;
+        color: var(--muted);
+        font-size: 18px;
+        line-height: 1.45;
+      }
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        border-top: 1px solid var(--line);
+      }
+      a.scene {
+        display: grid;
+        grid-template-columns: 52px 1fr auto;
+        gap: 16px;
+        align-items: baseline;
+        padding: 18px 4px;
+        border-bottom: 1px solid var(--line);
+        color: inherit;
+        text-decoration: none;
+      }
+      a.scene:hover { background: rgba(255, 252, 247, 0.7); }
+      .num {
+        font-family: ui-monospace, Menlo, Consolas, monospace;
+        font-size: 12px;
+        color: var(--muted);
+      }
+      strong {
+        display: block;
+        font-size: 22px;
+        font-weight: 560;
+      }
+      em {
+        display: block;
+        margin-top: 4px;
+        font-style: normal;
+        color: var(--muted);
+        font-family: ui-sans-serif, "Segoe UI", sans-serif;
+        font-size: 14px;
+        line-height: 1.4;
+      }
+      .go {
+        font-family: ui-monospace, Menlo, Consolas, monospace;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #8a5a32;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="mark">tiny scenes</p>
+      <h1>Procedural sets, built in code.</h1>
+      <p class="lede">
+        Stylized three.js scenes. Each one is its own page. Shared pieces live in
+        <code>lib/</code> — props, a fixed-seed timeline, and the render setup.
+      </p>
+      <ul id="scenes"></ul>
+    </main>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
