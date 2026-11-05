@@ -21,7 +21,7 @@ runScene({
     pmrem.dispose();
 
     const chair = createChair({
-      color: '#e25814',
+      color: '#8f3812',
       baseColor: '#d5d8de',
       rotation: 0.42,
     });
@@ -37,7 +37,7 @@ runScene({
 
 function frameChair(camera, aspect, target) {
   const azimuth = THREE.MathUtils.degToRad(40);
-  const elevation = THREE.MathUtils.degToRad(18);
+  const elevation = THREE.MathUtils.degToRad(14);
   let dist = 2.35;
   if (aspect < 0.8) dist = 3.4;
   else if (aspect < 1.25) dist = 2.95;
